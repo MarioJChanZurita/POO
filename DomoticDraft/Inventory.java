@@ -1,18 +1,39 @@
-public class Inventory{
-    private Device devices[20];
+public class Inventory extends ManageArray{
+    private final Device[] devices;
 
-    public void addDevice(){};
+    public Inventory(){
+        this.devices = new Device[20];
+    }
 
-    public Device getDevice(){}
+    public void addDevice(Device device){
+        if (this.getLastIndex() == this.devices.length){
+            grow(this.devices);
+        }
+        this.devices[this.getLastIndex()] = device;
+        this.setLastIndex(this.getLastIndex() + 1);
+    }
+
+    public Device getDevice(Device device){
+        return this.searchDevice(device);
+    }
 
     public Device searchDevice(Device device){
-
+        for (int i = 0; i < this.devices.length; i++){
+            if (this.devices[i].equals(device)) {
+                return device;
+            }
+        }
+        return null;
     }
 
-    public void createInventory(){
-        Device device0 = new Device(0, true, "AC", brand);
-        devices[0] = device0;
-        Device device1 = new Device(0, false, "TV", brand);
-        devices[1] = device1;
+    public void removeDevice(Device device) {
+        int indexOfDevice = indexOfDevice(this.devices, device);
+        if (indexOfDevice < 0){
+            return;
+        }
+
+        moveToTheLeft(this.devices, indexOfDevice);
+        this.setLastIndex(this.getLastIndex() - 1);
     }
+
 }

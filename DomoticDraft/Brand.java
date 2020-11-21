@@ -1,5 +1,11 @@
 public enum Brand{
-    LG("LG"), PANASONIC("Panasonic"), DAEWO("Daewo"), CARRIER("Carrier");
+
+    LG("LG"),
+    PANASONIC("Panasonic"),
+    DAEWO("Daewo"),
+    CARRIER("Carrier"),
+    YORK("York");
+
     public final String brandName;
     public final int brandCode;
     
@@ -7,12 +13,7 @@ public enum Brand{
         this.brandName = brandName;
         this.brandCode = -1;
     }
-/*
-    Brand (String brandName, int brandCode){
-        this.brandName = brandName;
-        this.brandCode = brandCode;
-    }
-*/
+
     public String getBrandName(){
         return brandName;
     }

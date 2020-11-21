@@ -1,21 +1,19 @@
 public class Device {
     private int Id;
     private boolean Status;
+    private Type deviceType;
     private String Name;
-    //private Brand brand ;
-    private DeviceSpecs deviceSpecs;
+    private Brand brand ;
 
     public Device() {
-        this.Id = 0;
-        this.Status = false;
-        this.Name = null;
-        this.brand = null;
+        this(0, false, "name", null, null);
     }
 
-    public Device(int Id, boolean Status, String Name, Brand brand) {
+    public Device(int Id, boolean Status, String Name, Type deviceType, Brand brand) {
         this.Id = Id;
         this.Status = Status;
         this.Name = Name;
+        this.deviceType = deviceType;
         this.brand = brand;
     }
 
@@ -58,12 +56,26 @@ public class Device {
                 "Brand: " + this.brand.getBrandName()+ "\n";
         return output;
     }
-    public static void main(String[] args) {
-        Brand brand = Brand.LG;
-        Device device = new Device(0, true, "AC", brand);
-        
-        System.out.println(device);
-        
+
+    public boolean equals(Object compared){
+        if (this == compared){
+            return true;
+        }
+
+        if (!(compared instanceof Device)){
+            return false;
+        }
+
+        Device comparedDevice = (Device) compared;
+
+        if (this.Id == comparedDevice.getId() &&
+                this.Status == comparedDevice.getStatus() &&
+                this.Name.equals(comparedDevice.getName()) &&
+                this.brand.equals(comparedDevice)){
+            return true;
+        }
+        return false;
     }
+
 
 }    
