@@ -1,20 +1,22 @@
-public class Device {
+package Devices;
+
+import DeviceManager.Room;
+
+public class Device extends Room {
     private int Id;
     private boolean Status;
-    private Type deviceType;
     private String Name;
-    private Brand brand ;
+    private final DeviceSpecs deviceSpecs;
 
     public Device() {
-        this(0, false, "name", null, null);
+        this(0, false, "name", null);
     }
 
-    public Device(int Id, boolean Status, String Name, Type deviceType, Brand brand) {
+    public Device(int Id, boolean Status, String Name, DeviceSpecs deviceSpecs) {
         this.Id = Id;
         this.Status = Status;
         this.Name = Name;
-        this.deviceType = deviceType;
-        this.brand = brand;
+        this.deviceSpecs = deviceSpecs;
     }
 
     public int getId() {
@@ -28,10 +30,6 @@ public class Device {
     public String getName(){
         return Name;
     }
-
-    public Brand getBrand() {
-        return brand;
-    }
     
     public void setId(int id){
         this.Id = id;
@@ -44,26 +42,25 @@ public class Device {
     public void setName(String Name){
         this.Name = Name;
     }
-    
-    public void setBrand(Brand brand){
-        this.brand = brand;
-    }
+
     public String toString(){
         String output;
-        output = "ID: " + this.Id +"\n" +
+        output = super.toString() +
+                "ID: " + this.Id +"\n" +
                 "Status: " + this.Status + "\n"+
                 "Name: " + this.Name + "\n" +
-                "Brand: " + this.brand.getBrandName()+ "\n";
+                this.deviceSpecs.toString() + "\n";
         return output;
     }
 
     public boolean equals(Object compared){
+        boolean output = false;
         if (this == compared){
-            return true;
+            output = true;
         }
 
         if (!(compared instanceof Device)){
-            return false;
+            output = false;
         }
 
         Device comparedDevice = (Device) compared;
@@ -71,10 +68,10 @@ public class Device {
         if (this.Id == comparedDevice.getId() &&
                 this.Status == comparedDevice.getStatus() &&
                 this.Name.equals(comparedDevice.getName()) &&
-                this.brand.equals(comparedDevice)){
-            return true;
+                this.deviceSpecs.equals(comparedDevice.deviceSpecs)){
+            output = true;
         }
-        return false;
+        return output;
     }
 
 
