@@ -2,7 +2,7 @@ package Devices;
 
 import DeviceManager.Room;
 
-public class Device extends Room {
+public class Device {
     private int Id;
     private boolean Status;
     private String Name;
@@ -45,11 +45,10 @@ public class Device extends Room {
 
     public String toString(){
         String output;
-        output = super.toString() +
-                "ID: " + this.Id +"\n" +
+        output ="ID: " + this.Id +"\n" +
                 "Status: " + this.Status + "\n"+
                 "Name: " + this.Name + "\n" +
-                this.deviceSpecs.toString() + "\n";
+                this.deviceSpecs.toString();
         return output;
     }
 

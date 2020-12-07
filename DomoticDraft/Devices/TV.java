@@ -17,10 +17,8 @@ public class TV extends Device{
     }
 
     public String toString() {
-        String output = "";
-
-        output = super.toString() + "Panel: " + this.panel + "\n";
-
+        String output = " ";
+        output = super.toString() + "\n" + "Panel: " + this.panel;
         return output;
     }
 

@@ -19,9 +19,7 @@ public class AC extends Device{
 
     public String toString(){
         String output = " ";
-
         output = super.toString() + "\n" + "Temperature: " + temperature;
-
         return output;
     }
 
