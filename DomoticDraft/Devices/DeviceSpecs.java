@@ -25,6 +25,26 @@ public class DeviceSpecs{
         return model;
     }
 
+    public void setModel(String model){
+        this.model = model;
+    }
+
+    public boolean getBluetooth(){
+        return this.bluetoothwifiBuiltIn;
+    }
+
+    public void setBluetooth(boolean bluetooth){
+        this.bluetoothwifiBuiltIn = bluetooth;
+    }
+
+    public boolean getWifi(){
+        return this.wifiBuiltIn;
+    }
+
+    public void setWifi(boolean wifi){
+        this.wifiBuiltIn = wifi;
+    }
+
     public String toString(){
         String output;
         output = "Brand name: " + this.brand.getBrandName() + "\n" +

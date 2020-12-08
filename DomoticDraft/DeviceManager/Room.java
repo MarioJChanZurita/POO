@@ -2,6 +2,8 @@ package DeviceManager;
 
 import Devices.Device;
 
+import java.util.Scanner;
+
 public class Room {
 
     private Inventory<Device> deviceInventory;
@@ -46,6 +48,14 @@ public class Room {
         return output;
     }
 
+    public void edit(String featureToEdit, Scanner scanner){
+        switch (featureToEdit){
+            case "name":
+                this.roomName = scanner.nextLine();
+                break;
+        }
+    }
+
     public String toString(){
         String output = "";
         output = "Room name: " + this.roomName + "\n" +
@@ -58,13 +68,10 @@ public class Room {
         if (this == compared){
             output = true;
         }
-
         if (!(compared instanceof Room)){
             output = false;
         }
-
         Room comparedRoom = (Room) compared;
-
         if (this.roomName.equals(comparedRoom.getName()) &&
                 this.deviceInventory.length() == comparedRoom.getInventory().length() &&
                 this.deviceInventory.equals(comparedRoom.getInventory())){

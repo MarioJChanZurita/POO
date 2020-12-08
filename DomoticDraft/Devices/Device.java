@@ -1,7 +1,5 @@
 package Devices;
 
-import DeviceManager.Room;
-
 import java.util.Scanner;
 
 public class Device {
@@ -62,11 +60,30 @@ public class Device {
             case "status":
                 if (this.Status){
                     this.Status = false;
+                } else {
+                    this.Status = true;
                 }
-                this.Status = true;
                 break;
             case "name":
                 this.Name = scanner.nextLine();
+                break;
+            case "model":
+                String model = scanner.nextLine();
+                this.deviceSpecs.setModel(model);
+                break;
+            case "bluetooth":
+                if (this.deviceSpecs.getBluetooth()){
+                    this.deviceSpecs.setBluetooth(false);
+                } else {
+                    this.deviceSpecs.setBluetooth(true);
+                }
+                break;
+            case "wifi":
+                if (this.deviceSpecs.getWifi()){
+                    this.deviceSpecs.setWifi(false);
+                } else {
+                    this.deviceSpecs.setWifi(true);
+                }
                 break;
         }
     }
