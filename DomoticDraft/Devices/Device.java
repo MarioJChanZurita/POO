@@ -2,6 +2,8 @@ package Devices;
 
 import DeviceManager.Room;
 
+import java.util.Scanner;
+
 public class Device {
     private int Id;
     private boolean Status;
@@ -52,18 +54,32 @@ public class Device {
         return output;
     }
 
+    public void edit(String featureToEdit, Scanner scanner){
+        switch (featureToEdit){
+            case "id":
+                this.Id = scanner.nextInt();
+                break;
+            case "status":
+                if (this.Status){
+                    this.Status = false;
+                }
+                this.Status = true;
+                break;
+            case "name":
+                this.Name = scanner.nextLine();
+                break;
+        }
+    }
+
     public boolean equals(Object compared){
         boolean output = false;
         if (this == compared){
             output = true;
         }
-
         if (!(compared instanceof Device)){
             output = false;
         }
-
         Device comparedDevice = (Device) compared;
-
         if (this.Id == comparedDevice.getId() &&
                 this.Status == comparedDevice.getStatus() &&
                 this.Name.equals(comparedDevice.getName()) &&

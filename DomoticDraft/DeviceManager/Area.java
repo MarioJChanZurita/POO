@@ -1,5 +1,7 @@
 package DeviceManager;
 
+import Devices.Device;
+
 public class Area {
 
     private Inventory<Room> roomInventory;
@@ -22,8 +24,15 @@ public class Area {
         this.roomInventory.remove(room);
     }
 
-    public Room search(Room room){
-        return this.roomInventory.search(room);
+    public Room searchRoom(String roomName){
+        Room room = null;
+        for(int i = 0; i<this.roomInventory.length(); i++){
+            room = this.roomInventory.get(i);
+            if(room.getName().equals(roomName)){
+                break;
+            }
+        }
+        return room;
     }
 
     public String toString(){

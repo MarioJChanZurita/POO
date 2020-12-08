@@ -1,5 +1,7 @@
 package Devices;
 
+import java.util.Scanner;
+
 public class AC extends Device{
 
     private int temperature;
@@ -32,6 +34,11 @@ public class AC extends Device{
             }
         }
         return false;
+    }
+
+    public void edit(String featureToEdit, Scanner scanner){
+        super.edit(featureToEdit, scanner);
+
     }
 
 }

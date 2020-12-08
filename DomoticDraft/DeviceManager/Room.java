@@ -24,8 +24,15 @@ public class Room {
         this.deviceInventory.remove(device);
     }
 
-    public Device search(Device device){
-        return this.deviceInventory.search(device);
+    public Device searchDevice(String deviceName){
+        Device device = null;
+        for(int i = 0; i<this.deviceInventory.length(); i++){
+            device = this.deviceInventory.get(i);
+            if(device.getName().equals(deviceName)){
+                break;
+            }
+        }
+        return device;
     }
 
     public String getName(){

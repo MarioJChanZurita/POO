@@ -17,15 +17,19 @@ public class Inventory<Type> {
         this.items[this.firstFreeIndex] = item;
         this.setLastIndex(this.firstFreeIndex + 1);
     }
-
-    public Type search(Type item){
+    /*
+    public Type search(String itemName){
         Type output = null;
         for (int i = 0; i < this.items.length; i++){
-            if (this.items[i].equals(item)) {
+            if (this.items[i].equals(itemName)) {
                 output = this.items[i];
             }
         }
         return output;
+    }
+    */
+    public Type get(int index){
+        return this.items[index];
     }
 
     public void remove(Type item) {
