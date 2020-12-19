@@ -1,0 +1,2 @@
+1,LG,Smart TV,true,false
+2,Sony,Smart TV,true,false
