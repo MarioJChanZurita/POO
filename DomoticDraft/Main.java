@@ -19,6 +19,10 @@ public class Main{
         DeviceSpecs deviceSpecsTV = new DeviceSpecs(Brand.SONY, "Bravia 8k", true, false);
         Device secondaryRoomTV = new TV(5678, true, "secondaryRoomTV", deviceSpecsTV, "OLED");
 
+        //-------------------------------
+        //Implementar lectura de archivo
+
+
         //-------------------------
         area.add(mainRoom);
         area.add(secondaryRoom);
@@ -29,9 +33,10 @@ public class Main{
         System.out.println("Todo lo almacenado:");
         System.out.println(area.toString());
 
+        /*
         Device deviceToEdit = mainRoom.searchDevice("mainRoomAC");
         String featureToEdit = "status";
         deviceToEdit.edit(featureToEdit, scanner);
-
+        */
     }
 }

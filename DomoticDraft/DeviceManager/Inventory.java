@@ -6,13 +6,13 @@ public class Inventory<Type> {
     private int firstFreeIndex;
 
     public Inventory(){
-        this.items = (Type[]) new Object[10];
+        this.items = (Type[]) new Object[0];
         this.firstFreeIndex = 0;
     }
 
     public void add(Type item){
         if (this.firstFreeIndex == this.items.length){
-            grow();
+            this.grow();
         }
         this.items[this.firstFreeIndex] = item;
         this.setLastIndex(this.firstFreeIndex + 1);
@@ -62,7 +62,7 @@ public class Inventory<Type> {
     }
 
     private void grow(){
-        int newSize = this.items.length + this.items.length / 2;
+        int newSize = this.items.length + 1;
         Type[] newValues = (Type[]) new Object[newSize];
         for (int i = 0; i < this.items.length; i++){
             newValues[i] = this.items[i];

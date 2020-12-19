@@ -52,6 +52,31 @@ public class Device {
         return output;
     }
 
+    public Brand brandSelected(String brand ){
+        Brand output = null;
+        switch (brand){
+            case "LG":
+                output = Brand.LG;
+                break;
+            case "Panasonic":
+                output = Brand.PANASONIC;
+                break;
+            case "Sony":
+                output = Brand.SONY;
+                break;
+            case "Daewo":
+                output = Brand.DAEWO;
+                break;
+            case "Carrier":
+                output = Brand.CARRIER;
+                break;
+            case "York":
+                output = Brand.YORK;
+                break;
+        }
+        return output;
+    }
+
     public void edit(String featureToEdit, Scanner scanner){
         switch (featureToEdit){
             case "id":
@@ -67,6 +92,9 @@ public class Device {
             case "name":
                 this.Name = scanner.nextLine();
                 break;
+            case "brand":
+                String brand = scanner.nextLine();
+                this.deviceSpecs.setBrand(this.brandSelected(brand));
             case "model":
                 String model = scanner.nextLine();
                 this.deviceSpecs.setModel(model);
